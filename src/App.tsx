@@ -10,7 +10,7 @@ function App() {
 
   const toggleDarkMode = (event: React.ChangeEvent<HTMLInputElement>) => {
     const checked = event.target.checked;
-    setTheme(colorTheme);
+                              setTheme(colorTheme);
     setDarkSide(checked);
   };
   return (
