@@ -4,13 +4,11 @@ import useDarkSide from './hooks/useToggleThemeMode';
 function App() {
   const { colorTheme, setTheme } = useDarkSide();
 
-  const [darkSide, setDarkSide] = useState(
-    colorTheme === 'light' ? true : false,
-  );
+  const [darkSide, setDarkSide] = useState(colorTheme === 'light');
 
   const toggleDarkMode = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const checked = event.target.checked;
-                              setTheme(colorTheme);
+    const { checked } = event.target;
+    setTheme(colorTheme);
     setDarkSide(checked);
   };
   return (
