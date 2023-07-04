@@ -21,5 +21,15 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 0,
     'linebreak-style': 0,
+    'react/require-default-props': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'import/extensions': 'off',
+    'react/function-component-definition': [
+      2,
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
+      },
+    ],
   },
 };

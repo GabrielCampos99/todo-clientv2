@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import useDarkSide from './hooks/useToggleThemeMode';
 
-function App() {
+const App = () => {
   const { colorTheme, setTheme } = useDarkSide();
 
   const [darkSide, setDarkSide] = useState(colorTheme === 'light');
@@ -23,6 +23,6 @@ function App() {
       </h1>
     </div>
   );
-}
+};
 
 export default App;
