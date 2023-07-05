@@ -20,6 +20,9 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", ".eslintrc.cjs"],
+
+  "ignorePatterns": ["global.d.ts"],
+
+  "include": ["src", ".eslintrc.cjs", ".global.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

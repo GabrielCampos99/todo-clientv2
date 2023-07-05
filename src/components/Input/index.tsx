@@ -20,7 +20,9 @@ const Input = (props: InputProps) => {
         </label>
       )}
       <input
-        className={`p-3 rounded border-solid border text-stone-800 dark:bg-zinc-800 dark:text-white text-base font-semibold ${hasError()}`}
+        className={`p-3 rounded border-solid border text-stone-800 dark:bg-zinc-800 dark:text-white text-base font-semibold ${
+          hasError() || ''
+        }`}
         {...rest}
       />
       {!!error && <span className="text-red-500">{error}</span>}

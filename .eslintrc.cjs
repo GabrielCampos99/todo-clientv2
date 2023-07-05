@@ -10,13 +10,11 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
   ],
-  overrides: [],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    // project: './tsconfig.json',
-    tsconfigRootDir: __dirname,
+    project: './tsconfig.json',
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
