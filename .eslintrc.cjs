@@ -23,6 +23,8 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/jsx-props-no-spreading': 'off',
     'import/extensions': 'off',
+    'react/button-has-type': 'off',
+    'react/prop-types': 'off',
     'react/function-component-definition': [
       2,
       {
