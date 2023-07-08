@@ -2,7 +2,7 @@
 
 ## Descrição do Projeto
 
-Este é um projeto de aprendizado em desenvolvimento, focado em boas práticas e utiliza as seguintes tecnologias: React, TypeScript, React Hook Form, Vite, React Testing Library, Autenticação, ZodJs Validation e React Query Client.
+Este é um projeto de aprendizado em desenvolvimento, focado em boas práticas e utiliza as seguintes tecnologias: React, TypeScript, React Hook Form, Vite, React Testing Library, Husky, Storybook, Autenticação, ZodJs Validation e React Query Client.
 
 ## Pré-requisitos
 
