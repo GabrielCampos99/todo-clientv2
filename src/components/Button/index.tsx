@@ -24,7 +24,7 @@ const Button = (props: ButtonProps) => {
   const hasBorderButton = hasBorder ? 'border rounded' : '';
   const isDisableStyles = disabled
     ? 'opacity-50 cursor-not-allowed'
-    : 'transition-transform hover:scale-[102%]';
+    : 'transition-transform hover:scale-[101%]';
 
   return (
     <button
