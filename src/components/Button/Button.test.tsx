@@ -53,3 +53,21 @@ test('verifica a ausência de classes quando fullWidth e hasBorder são falsos',
   expect(button).not.toHaveClass('border');
   expect(button).not.toHaveClass('rounded');
 });
+
+test('verifica a existências de classes quando disabled é verdadeiro.', () => {
+  const { getByTestId } = render(<Button data-testid="button" disabled />);
+
+  const button = getByTestId('button');
+
+  expect(button).toHaveClass('opacity-50');
+  expect(button).toHaveClass('cursor-not-allowed');
+});
+
+test('verifica a ausência de classes quando disabled é verdadeiro.', () => {
+  const { getByTestId } = render(<Button />);
+
+  const button = getByTestId('button');
+
+  expect(button).not.toHaveClass('opacity-50');
+  expect(button).not.toHaveClass('cursor-not-allowed');
+});
