@@ -25,6 +25,8 @@ module.exports = {
     'import/extensions': 'off',
     'react/button-has-type': 'off',
     'react/prop-types': 'off',
+    'comma-dangle': 'off',
+    '@typescript-eslint/comma-dangle': 'off',
     'react/function-component-definition': [
       2,
       {
