@@ -1,8 +1,9 @@
 import { render, fireEvent } from '@testing-library/react';
+import { vitest } from 'vitest';
 import { useOutsideClick } from './useOutsideClick';
 
 test('Call the manipulador when click outside the element', () => {
-  const handler = jest.fn();
+  const handler = vitest.fn();
 
   const Component = () => {
     const ref = useOutsideClick(handler);

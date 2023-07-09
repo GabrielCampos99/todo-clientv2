@@ -1,4 +1,5 @@
 import { fireEvent, render } from '@testing-library/react';
+import { vitest } from 'vitest';
 import Button from '.';
 
 test('renderiza o componente Button com os estilos e texto corretos', () => {
@@ -24,7 +25,7 @@ test('renderiza o componente Button com os estilos e texto corretos', () => {
 });
 
 test('chama a função de callback ao clicar no botão', () => {
-  const onClick = jest.fn();
+  const onClick = vitest.fn();
   const { getByTestId } = render(
     <Button text="Clique aqui" onClick={onClick} data-testid="button" />,
   );
