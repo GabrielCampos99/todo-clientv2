@@ -1,5 +1,5 @@
-import type { Preview } from "@storybook/react"
-import '../src/index.css'
+import type { Preview } from '@storybook/react';
+import '../src/index.css';
 const preview: Preview = {
   globalTypes: {
     darkMode: {
@@ -7,11 +7,12 @@ const preview: Preview = {
     },
     // Optional (Default: 'dark')
     className: {
-      defaultValue: "dark", // Set your custom dark mode class name
+      defaultValue: 'dark', // Set your custom dark mode class name
     },
   },
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    layout: 'fullscreen',
+    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -19,6 +20,6 @@ const preview: Preview = {
       },
     },
   },
-}
+};
 
-export default preview
+export default preview;
