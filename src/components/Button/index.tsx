@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 type BgColorButton = 'bg-indigo-400' | 'bg-transparent';
 type ButtonProps = {
-  text?: string;
+  children?: ReactNode;
   fullWidth?: boolean;
   bgColor?: BgColorButton;
   hasBorder?: boolean;
@@ -11,7 +11,7 @@ type ButtonProps = {
 
 const Button = (props: ButtonProps) => {
   const {
-    text = 'Botão',
+    children = 'Botão',
     type = 'button',
     bgColor = 'bg-indigo-400',
     hasBorder = true,
@@ -32,7 +32,7 @@ const Button = (props: ButtonProps) => {
       className={`px-6 py-4 text-white uppercase ${isDisableStyles} ${fullWidthStyles} ${bgColor} ${hasBorderButton}`}
       {...rest}
     >
-      {text}
+      {children}
     </button>
   );
 };
