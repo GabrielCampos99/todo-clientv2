@@ -13,7 +13,7 @@ export const Primary = {
   render: () => (
     <Modal>
       <Modal.Open opens="cabin-form">
-        <Button text="Abra o modal" />
+        <Button>Abra o modal</Button>
       </Modal.Open>
       <Modal.Window name="cabin-form">
         <h1>Modal aberto</h1>
