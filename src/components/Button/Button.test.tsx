@@ -5,12 +5,13 @@ import Button from '.';
 test('renderiza o componente Button com os estilos e texto corretos', () => {
   const { getByText, getByTestId } = render(
     <Button
-      text="Clique aqui"
       fullWidth
       bgColor="bg-indigo-400"
       hasBorder={false}
       data-testid="button"
-    />,
+    >
+      Clique aqui
+    </Button>,
   );
 
   // Verifica se o texto do botão está correto
@@ -27,7 +28,9 @@ test('renderiza o componente Button com os estilos e texto corretos', () => {
 test('chama a função de callback ao clicar no botão', () => {
   const onClick = vitest.fn();
   const { getByTestId } = render(
-    <Button text="Clique aqui" onClick={onClick} data-testid="button" />,
+    <Button onClick={onClick} data-testid="button">
+      Clique aqui
+    </Button>,
   );
 
   // Simula um clique no botão
@@ -39,12 +42,7 @@ test('chama a função de callback ao clicar no botão', () => {
 
 test('verifica a ausência de classes quando fullWidth e hasBorder são falsos', () => {
   const { getByTestId } = render(
-    <Button
-      text="Teste"
-      fullWidth={false}
-      hasBorder={false}
-      data-testid="button"
-    />,
+    <Button fullWidth={false} hasBorder={false} data-testid="button" />,
   );
 
   const button = getByTestId('button');
@@ -64,7 +62,7 @@ test('verifica a existências de classes quando disabled é verdadeiro.', () => 
 });
 
 test('verifica a ausência de classes quando disabled é verdadeiro.', () => {
-  const { getByTestId } = render(<Button />);
+  const { getByTestId } = render(<Button data-testid="button" />);
 
   const button = getByTestId('button');
 
