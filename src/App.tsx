@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import useDarkSide from './hooks/useToggleThemeMode';
-import Carrousel from './components/Carrousel';
+
+import Button from './components/Button';
+import { useToast } from './components/Toast';
 
 const App = () => {
+  const { showToast } = useToast();
   const { colorTheme, setTheme } = useDarkSide();
-
   const [darkSide, setDarkSide] = useState(colorTheme === 'light');
 
   const toggleDarkMode = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -12,6 +14,7 @@ const App = () => {
     setTheme(colorTheme);
     setDarkSide(checked);
   };
+
   return (
     <div className="w-full flex flex-col">
       <div className="items-center mx-auto">
@@ -24,6 +27,15 @@ const App = () => {
           Hello world!
         </h1>
 
+        <Button
+          onClick={() => showToast({
+            message: 'Mensagem no toast',
+            type: 'success',
+            title: 'Titulo',
+          })}
+        >
+          CLique aqui
+        </Button>
         <div />
       </div>
     </div>

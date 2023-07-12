@@ -23,6 +23,6 @@
 
   "ignorePatterns": ["global.d.ts"],
 
-  "include": ["src", ".eslintrc.cjs", ".global.d.ts"],
+  "include": ["src", ".eslintrc.cjs", ".global.d.ts", "tailwind.config.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
