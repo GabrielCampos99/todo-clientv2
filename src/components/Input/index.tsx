@@ -1,10 +1,13 @@
+import React, { forwardRef } from 'react';
+
 type InputProps = {
   className?: string;
   label?: string;
   htmlFor?: string;
   error?: string;
 } & React.InputHTMLAttributes<HTMLInputElement>;
-const Input = (props: InputProps) => {
+
+const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const {
     className, label, htmlFor, error, ...rest
   } = props;
@@ -20,6 +23,7 @@ const Input = (props: InputProps) => {
         </label>
       )}
       <input
+        ref={ref}
         className={`p-3 rounded border-solid border text-stone-800 dark:bg-zinc-800 dark:text-white text-base font-semibold ${
           hasError() || ''
         }`}
@@ -28,6 +32,8 @@ const Input = (props: InputProps) => {
       {!!error && <span className="text-red-500">{error}</span>}
     </div>
   );
-};
+});
+
+Input.displayName = 'Input';
 
 export default Input;
