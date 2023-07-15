@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, forwardRef } from 'react';
 
 type ButtonSize = 'sm' | 'md' | 'lg' | 'xl';
 type BgColorButton = 'bg-indigo-400' | 'bg-transparent';
@@ -11,7 +11,7 @@ type ButtonProps = {
   size?: ButtonSize;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button = (props: ButtonProps) => {
+const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {
     children = 'Botão',
     type = 'button',
@@ -39,6 +39,7 @@ const Button = (props: ButtonProps) => {
 
   return (
     <button
+      ref={ref}
       type={type}
       className={`text-white uppercase ${isDisableStyles} ${fullWidthStyles} ${bgColor} ${hasBorderButton} ${buttonSize}`}
       {...rest}
@@ -46,6 +47,8 @@ const Button = (props: ButtonProps) => {
       {children}
     </button>
   );
-};
+});
+
+Button.displayName = 'Button';
 
 export default Button;
