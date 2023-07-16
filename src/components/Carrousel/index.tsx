@@ -1,12 +1,9 @@
-import { useRef, ReactNode } from 'react';
+import { useRef } from 'react';
 import Slider, { Settings } from 'react-slick';
+
+import { CarrouselProps } from '../../types/components/carrousel';
 import Typography from '../Typography';
 import Button from '../Button';
-
-type CarrouselProps<T> = {
-  data: T[];
-  render: (item: T) => ReactNode;
-};
 
 const Carrousel = <T,>({ data, render }: CarrouselProps<T>) => {
   const sliderRef = useRef<Slider | null>(null);

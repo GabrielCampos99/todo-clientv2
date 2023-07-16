@@ -7,14 +7,14 @@ import {
   useReducer,
 } from 'react';
 import { clsx } from 'clsx';
-import { SHOW_TOAST, ToastConstrains } from './contrains';
+import { SHOW_TOAST, ToastConstrains } from '../../contrains/components/toast';
 import {
   ToastState,
   ToastAction,
   ToastContextType,
   ToastData,
   ToastProps,
-} from './interfaces';
+} from '../../types/components/toast';
 
 const toastReducer = (state: ToastState, action: ToastAction): ToastState => {
   switch (action.type) {

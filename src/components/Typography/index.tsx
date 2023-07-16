@@ -1,18 +1,12 @@
-import React, { ForwardedRef, ReactNode, forwardRef } from 'react';
+import React, { ForwardedRef, forwardRef } from 'react';
+import { TypographyProps, Variant } from '../../types/components/typography';
 
-export type Variant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'p';
-
-type TypographyProps = {
-  children: ReactNode;
-  className?: string;
-  variant: Variant;
-};
 const Typography = forwardRef<HTMLElement, TypographyProps>(
   (
     {
       children, variant, className, ...rest
     }: TypographyProps,
-    ref: ForwardedRef<HTMLElement>,
+    ref: ForwardedRef<HTMLElement>
   ) => {
     const elementMap: Record<Variant, string> = {
       h1: 'h1',
@@ -33,9 +27,9 @@ const Typography = forwardRef<HTMLElement, TypographyProps>(
         ref,
         className: classes,
       },
-      children,
+      children
     );
-  },
+  }
 );
 
 Typography.displayName = 'Typography';

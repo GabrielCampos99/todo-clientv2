@@ -1,15 +1,5 @@
-import React, { ReactNode, forwardRef } from 'react';
-
-type ButtonSize = 'sm' | 'md' | 'lg' | 'xl';
-type BgColorButton = 'bg-indigo-400' | 'bg-transparent';
-type ButtonProps = {
-  children?: ReactNode;
-  fullWidth?: boolean;
-  bgColor?: BgColorButton;
-  hasBorder?: boolean;
-  disabled?: boolean;
-  size?: ButtonSize;
-} & React.ButtonHTMLAttributes<HTMLButtonElement>;
+import { forwardRef } from 'react';
+import { ButtonProps, ButtonSize } from '../../types/components/button';
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {

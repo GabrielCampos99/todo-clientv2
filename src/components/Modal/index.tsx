@@ -7,16 +7,13 @@ import {
 } from 'react';
 import { createPortal } from 'react-dom';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
+import {
+  ModalContextProps,
+  ModalProps,
+  OpenProps,
+  WindowProps,
+} from '../../types/components/modal';
 
-type ModalProps = { children: React.ReactNode };
-type OpenProps = { children: React.ReactElement; opens: string };
-
-type WindowProps = { children: React.ReactNode; name: string };
-type ModalContextProps = {
-  openName: string;
-  close: () => void;
-  open: React.Dispatch<React.SetStateAction<string>>;
-};
 const ModalContext = createContext<ModalContextProps | null>(null);
 
 const Modal = (props: ModalProps) => {
@@ -28,7 +25,7 @@ const Modal = (props: ModalProps) => {
 
   const ModalProviderValue = useMemo(
     () => ({ openName, close, open }),
-    [openName, open],
+    [openName, open]
   );
 
   return (
@@ -61,7 +58,7 @@ const Window = (props: WindowProps) => {
         <div>{children}</div>
       </div>
     </div>,
-    document.body,
+    document.body
   );
 };
 
