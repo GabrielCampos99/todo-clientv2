@@ -9,4 +9,5 @@ export type ButtonProps = {
   hasBorder?: boolean;
   disabled?: boolean;
   size?: ButtonSize;
+  to?: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
