@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+import { Link } from 'react-router-dom';
 import { ButtonProps, ButtonSize } from '../../types/components/button';
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
@@ -10,6 +11,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     fullWidth = false,
     disabled = false,
     size = 'md',
+    to,
     ...rest
   } = props;
 
@@ -27,15 +29,20 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     ? 'opacity-50 cursor-not-allowed'
     : 'transition-transform';
 
-  return (
-    <button
-      ref={ref}
-      type={type}
-      className={`text-white uppercase ${isDisableStyles} ${fullWidthStyles} ${bgColor} ${hasBorderButton} ${buttonSize}`}
-      {...rest}
-    >
-      {children}
-    </button>
+  const isLink = !!to;
+  const buttonProps = {
+    ref,
+    type: isLink ? undefined : type,
+    className: `text-white uppercase ${isDisableStyles} ${fullWidthStyles} ${bgColor} ${hasBorderButton} ${buttonSize}`,
+    ...rest,
+  };
+
+  return isLink && !disabled ? (
+    <Link to={to}>
+      <button {...buttonProps}>{children}</button>
+    </Link>
+  ) : (
+    <button {...buttonProps}>{children}</button>
   );
 });
 
