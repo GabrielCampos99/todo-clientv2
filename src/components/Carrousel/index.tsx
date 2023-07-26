@@ -1,14 +1,15 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Slider, { Settings } from 'react-slick';
 
 import { CarrouselProps } from '../../types/components/carrousel';
 import Typography from '../Typography';
 import Button from '../Button';
 
-const Carrousel = <T,>({ data, render }: CarrouselProps<T>) => {
+const Carrousel = <T,>({ data, render, numberOfItems }: CarrouselProps<T>) => {
   const sliderRef = useRef<Slider | null>(null);
-
-  const gotoNext = () => {
+  const [activeSlide, setActiveSlide] = useState(0);
+  /*   const [activeSlide2, setActiveSlide2] = useState(0);
+   */ const gotoNext = () => {
     sliderRef.current?.slickNext();
   };
 
@@ -21,6 +22,9 @@ const Carrousel = <T,>({ data, render }: CarrouselProps<T>) => {
     slidesToScroll: 1,
     arrows: false,
     infinite: false,
+    beforeChange: (_, next) => {
+      setActiveSlide(next);
+    },
   };
 
   return (
@@ -29,11 +33,11 @@ const Carrousel = <T,>({ data, render }: CarrouselProps<T>) => {
         {data.map(render)}
       </Slider>
       <div className="flex justify-between">
-        <Button onClick={gotoPrev}>
-          <Typography variant="p">Anterior</Typography>
+        <Button onClick={gotoPrev} size="lg">
+          <Typography variant="h4">Anterior</Typography>
         </Button>
-        <Button onClick={gotoNext}>
-          <Typography variant="p">Próximo</Typography>
+        <Button onClick={gotoNext} size="lg">
+          <Typography variant="h4">Próximo</Typography>
         </Button>
       </div>
     </div>
