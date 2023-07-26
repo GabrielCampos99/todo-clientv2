@@ -2,7 +2,7 @@ import Button from '../components/Button';
 import Typography from '../components/Typography';
 
 const PageNotFound = () => (
-  <section className="bg-white dark:bg-gray-900 h-screen flex items-center">
+  <section className=" h-screen flex items-center">
     <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
       <div className="mx-auto max-w-screen-sm text-center">
         <Typography
