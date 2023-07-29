@@ -8,13 +8,17 @@ import {
   LoginSchema,
   LoginSchemaProps,
 } from '../types/schemas/login/loginSchema';
+import { useLogin } from '../hooks/auth/useLogin';
 
 const Login = () => {
   const { handleSubmit, register } = useForm<LoginSchemaProps>({
     resolver: zodResolver(LoginSchema),
   });
+  const { login } = useLogin();
 
-  const onSubmit: SubmitHandler<LoginSchemaProps> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<LoginSchemaProps> = async (data) => {
+    login(data);
+  };
   return (
     <div className="max-w-7xl m-auto p-4">
       <Button bgColor="bg-transparent" size="sm" to="/" hasBorder>
