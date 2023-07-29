@@ -12,6 +12,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     disabled = false,
     size = 'md',
     to,
+    className,
     ...rest
   } = props;
 
@@ -24,7 +25,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 
   const buttonSize = buttonSizeMap[size];
   const fullWidthStyles = fullWidth ? 'w-full' : '';
-  const hasBorderButton = hasBorder ? 'border rounded' : '';
+  const hasBorderButton = hasBorder ? 'rounded' : '';
   const isDisableStyles = disabled
     ? 'opacity-50 cursor-not-allowed'
     : 'transition-transform';
@@ -33,7 +34,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const buttonProps = {
     ref,
     type: isLink ? undefined : type,
-    className: `text-white uppercase ${isDisableStyles} ${fullWidthStyles} ${bgColor} ${hasBorderButton} ${buttonSize}`,
+    className: `text-white uppercase ${isDisableStyles} ${fullWidthStyles} ${bgColor} ${hasBorderButton} ${buttonSize} ${
+      className || ''
+    }`,
     ...rest,
   };
 
