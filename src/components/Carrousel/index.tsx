@@ -84,7 +84,7 @@ const Carrousel = <T,>({ data, render, className }: CarrouselProps<T>) => {
             </Button>
           )}
           lastChildren={(
-            <Button onClick={gotoNext} size="lg" to="/cadastro">
+            <Button onClick={gotoNext} size="lg" to="/login">
               <Typography variant="h4">Começar</Typography>
             </Button>
           )}

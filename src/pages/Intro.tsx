@@ -56,7 +56,7 @@ const Intro = () => {
           bgColor="bg-transparent"
           size="lg"
           className="text-slate-200"
-          to="signin"
+          to="login"
         >
           <Typography variant="h4">Pular</Typography>
         </Button>
