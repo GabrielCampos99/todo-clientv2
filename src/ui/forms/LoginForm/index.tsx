@@ -21,8 +21,8 @@ const LoginForm = (props: LoginFormProps) => {
         placeholder="Digite o seu nome de usuário"
         containerClassName="mt-8"
         required
-        error={errors?.username?.message}
-        {...register('username')}
+        error={errors?.email?.message}
+        {...register('email')}
         disabled={isLoading}
       />
       <Input

@@ -7,7 +7,7 @@ export const loginService = async (props: LoginSchemaProps) => {
 
     if (!url) throw new Error('Erro ao recuperar url da API');
 
-    const response = await fetch(`${url}/users`, {
+    const response = await fetch(`${url}/session`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(props),

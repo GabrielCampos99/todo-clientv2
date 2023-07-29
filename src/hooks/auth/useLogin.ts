@@ -16,7 +16,7 @@ export const useLogin = () => {
       console.log(user);
       //@TODO Add this info in localStorage or something...
       queryClient.setQueryData(['user'], user);
-      navigate('/user', { replace: true });
+      navigate('/tarefas', { replace: true });
     },
     onError: (err) => {
       console.log('ERROR', err);
