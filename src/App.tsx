@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Typography from './components/Typography';
 import PageNotFound from './pages/PageNotFound';
 import Intro from './pages/Intro';
+import Login from './pages/Login';
 
 const App = () => (
   /*  const { showToast } = useToast();
@@ -18,10 +18,7 @@ const App = () => (
     <Routes>
       <Route path="/" element={<Intro />} />
 
-      <Route
-        path="login"
-        element={<Typography variant="h1">login</Typography>}
-      />
+      <Route path="login" element={<Login />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   </BrowserRouter>
