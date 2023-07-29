@@ -9,6 +9,7 @@ import {
   LoginSchemaProps,
 } from '../types/schemas/login/loginSchema';
 import { useLogin } from '../hooks/auth/useLogin';
+import Divider from '../components/Divider/Index';
 
 const Login = () => {
   const { handleSubmit, register } = useForm<LoginSchemaProps>({
@@ -28,6 +29,12 @@ const Login = () => {
         Login
       </Typography>
       <LoginForm onSubmit={handleSubmit(onSubmit)} register={register} />
+
+      <Divider className="mt-8">
+        <Typography variant="p" className="text-xl text-white mx-2">
+          ou
+        </Typography>
+      </Divider>
     </div>
   );
 };
