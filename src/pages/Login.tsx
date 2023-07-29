@@ -20,7 +20,7 @@ const Login = () => {
   } = useForm<LoginSchemaProps>({
     resolver: zodResolver(LoginSchema),
   });
-  const { login } = useLogin();
+  const { isLoading, login } = useLogin();
 
   const onSubmit: SubmitHandler<LoginSchemaProps> = async (data) => {
     login(data);
@@ -37,6 +37,7 @@ const Login = () => {
         onSubmit={handleSubmit(onSubmit)}
         register={register}
         errors={errors}
+        isLoading={isLoading}
       />
 
       <Divider className="mt-8">

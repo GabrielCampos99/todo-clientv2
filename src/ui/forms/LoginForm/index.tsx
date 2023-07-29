@@ -6,10 +6,13 @@ import { LoginSchemaProps } from '../../../types/schemas/login/loginSchema';
 type LoginFormProps = {
   register: UseFormRegister<LoginSchemaProps>;
   errors: FieldErrors<LoginSchemaProps>;
+  isLoading: boolean;
 } & React.FormHTMLAttributes<HTMLFormElement>;
 
 const LoginForm = (props: LoginFormProps) => {
-  const { register, errors, ...rest } = props;
+  const {
+    register, errors, isLoading, ...rest
+  } = props;
   return (
     <form {...rest}>
       <Input
@@ -20,6 +23,7 @@ const LoginForm = (props: LoginFormProps) => {
         required
         error={errors?.username?.message}
         {...register('username')}
+        disabled={isLoading}
       />
       <Input
         label="Senha"
@@ -29,10 +33,11 @@ const LoginForm = (props: LoginFormProps) => {
         required
         error={errors?.password?.message}
         {...register('password')}
+        disabled={isLoading}
       />
 
       <Button fullWidth className="mt-12" type="submit">
-        Confirmar
+        {isLoading ? 'Carregando...' : 'Confirmar'}
       </Button>
     </form>
   );
