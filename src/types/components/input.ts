@@ -3,4 +3,6 @@ export type InputProps = {
   label?: string;
   htmlFor?: string;
   error?: string;
+  labelClassName?: string;
+  containerClassName?: string;
 } & React.InputHTMLAttributes<HTMLInputElement>;
