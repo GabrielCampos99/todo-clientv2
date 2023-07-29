@@ -31,19 +31,23 @@ const Intro = () => {
     },
   ];
   return (
-    <div className="m-4">
+    <div>
       <Carrousel
+        className="m-4"
         data={introItems}
         render={(item) => (
           <div key={item.title}>
             <div className="flex items-center flex-col min-h-[50vh]">
               {item.asset}
-              <Typography variant="h1">{item.title}</Typography>
-              <Typography variant="h2">{item.description}</Typography>
+              <Typography variant="h1" className="text-white mt-20">
+                {item.title}
+              </Typography>
+              <Typography variant="h2" className="text-white mt-6">
+                {item.description}
+              </Typography>
             </div>
           </div>
         )}
-        numberOfItems={introItems.length - 1}
       />
     </div>
   );
