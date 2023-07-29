@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import PageNotFound from './pages/PageNotFound';
 import Intro from './pages/Intro';
 import Login from './pages/Login';
+import SingIn from './pages/SingIn';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -28,6 +29,8 @@ const App = () => (
         <Route path="/" element={<Intro />} />
 
         <Route path="login" element={<Login />} />
+        <Route path="singin" element={<SingIn />} />
+
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>

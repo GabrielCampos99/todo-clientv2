@@ -4,39 +4,40 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import Typography from '../components/Typography';
-import LoginForm from '../ui/forms/LoginForm';
-import {
-  LoginSchema,
-  LoginSchemaProps,
-} from '../types/schemas/login/loginSchema';
-import { useLogin } from '../hooks/auth/useLogin';
-import Divider from '../components/Divider/Index';
 
-const Login = () => {
+import Divider from '../components/Divider/Index';
+import {
+  SingInProps,
+  SingInSchema,
+} from '../types/schemas/singin/singInSchema';
+import SingInForm from '../ui/forms/SingInForm';
+import { useSingIn } from '../hooks/auth/useSingIn';
+
+const SingIn = () => {
   const {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm<LoginSchemaProps>({
-    resolver: zodResolver(LoginSchema),
+  } = useForm<SingInProps>({
+    resolver: zodResolver(SingInSchema),
   });
-  const { isLoading, login } = useLogin();
+  const { isLoading, singIn } = useSingIn();
 
-  const onSubmit: SubmitHandler<LoginSchemaProps> = async (data) => {
-    login(data);
+  const onSubmit: SubmitHandler<SingInProps> = async (data) => {
+    singIn(data);
   };
   return (
     <div className="max-w-7xl m-auto p-4">
-      <Button bgColor="bg-transparent" size="sm" to="/" hasBorder>
+      <Button bgColor="bg-transparent" size="sm" to="/login" hasBorder>
         <div className="flex">
           <ChevronLeft />
           Voltar
         </div>
       </Button>
       <Typography variant="h1" className="font-bold text-white">
-        Login
+        Cadastre-se
       </Typography>
-      <LoginForm
+      <SingInForm
         onSubmit={handleSubmit(onSubmit)}
         register={register}
         errors={errors}
@@ -51,11 +52,11 @@ const Login = () => {
 
       <div className="flex justify-center mt-8 flex-wrap items-center gap-1 mb-8">
         <Typography variant="p" className="text-slate-300 text-lg">
-          Não possui conta?
+          Já possui uma conta?
         </Typography>
-        <Link to="/singin">
+        <Link to="/login">
           <Typography variant="p" className="text-lg text-white">
-            Registre-se aqui!
+            Entre por aqui!
           </Typography>
         </Link>
       </div>
@@ -63,4 +64,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SingIn;
