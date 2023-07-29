@@ -1,14 +1,15 @@
-import { UseFormRegister } from 'react-hook-form';
+import { FieldErrors, UseFormRegister } from 'react-hook-form';
 import Button from '../../../components/Button';
 import Input from '../../../components/Input';
 import { LoginSchemaProps } from '../../../types/schemas/login/loginSchema';
 
 type LoginFormProps = {
   register: UseFormRegister<LoginSchemaProps>;
+  errors: FieldErrors<LoginSchemaProps>;
 } & React.FormHTMLAttributes<HTMLFormElement>;
 
 const LoginForm = (props: LoginFormProps) => {
-  const { register, ...rest } = props;
+  const { register, errors, ...rest } = props;
   return (
     <form {...rest}>
       <Input
@@ -17,6 +18,7 @@ const LoginForm = (props: LoginFormProps) => {
         placeholder="Digite o seu nome de usuário"
         containerClassName="mt-8"
         required
+        error={errors?.username?.message}
         {...register('username')}
       />
       <Input
@@ -25,6 +27,7 @@ const LoginForm = (props: LoginFormProps) => {
         placeholder="Digite a sua senha"
         containerClassName="mt-8"
         required
+        error={errors?.password?.message}
         {...register('password')}
       />
 
