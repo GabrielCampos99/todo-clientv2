@@ -21,17 +21,23 @@ const PreviousButton = ({
 };
 
 const NextButton = ({
-  children,
+  normalChildren,
+  lastChildren,
   activeSlide,
   dataLength,
 }: {
-  children: React.ReactNode;
+  normalChildren: React.ReactNode;
   activeSlide: number;
   dataLength: number;
+  lastChildren: React.ReactNode;
 }) => {
   const RerenderPreviousButton = useMemo(
-    () => (activeSlide !== dataLength ? <div>{children}</div> : <div />),
-    [activeSlide, children, dataLength]
+    () => (activeSlide !== dataLength ? (
+      <div>{normalChildren}</div>
+    ) : (
+      <div>{lastChildren}</div>
+    )),
+    [activeSlide, normalChildren, lastChildren, dataLength]
   );
 
   return RerenderPreviousButton;
@@ -64,18 +70,27 @@ const Carrousel = <T,>({ data, render, className }: CarrouselProps<T>) => {
       <Slider {...settings} ref={sliderRef}>
         {data.map(render)}
       </Slider>
-      <div className="flex justify-between mt-6">
+      <div className="flex justify-between mt-6 max-w-7xl m-auto">
         <PreviousButton activeSlide={activeSlide}>
           <Button bgColor="bg-transparent" onClick={gotoPrev} size="lg">
             <Typography variant="h4">Anterior</Typography>
           </Button>
         </PreviousButton>
 
-        <NextButton activeSlide={activeSlide} dataLength={data.length - 1}>
-          <Button onClick={gotoNext} size="lg">
-            <Typography variant="h4">Próximo</Typography>
-          </Button>
-        </NextButton>
+        <NextButton
+          normalChildren={(
+            <Button onClick={gotoNext} size="lg">
+              <Typography variant="h4">Próximo</Typography>
+            </Button>
+          )}
+          lastChildren={(
+            <Button onClick={gotoNext} size="lg" to="/cadastro">
+              <Typography variant="h4">Começar</Typography>
+            </Button>
+          )}
+          activeSlide={activeSlide}
+          dataLength={data.length - 1}
+        />
       </div>
     </div>
   );
