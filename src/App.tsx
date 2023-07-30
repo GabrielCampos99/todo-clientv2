@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import SingIn from './pages/SingIn';
 import Tasks from './pages/Tasks';
 import ProtectedRoute from './ui/route/ProtectedRoute';
+import BasicLayout from './ui/layout/BasicLayout';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -30,11 +31,19 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Intro />} />
+        <Route
+          element={(
+            <BasicLayout>
+              <Outlet />
+            </BasicLayout>
+          )}
+        >
+          <Route path="/" element={<Intro />} />
+          <Route path="login" element={<Login />} />
+          <Route path="singin" element={<SingIn />} />
+        </Route>
 
-        <Route path="login" element={<Login />} />
-        <Route path="singin" element={<SingIn />} />
-
+        {/* Protected Routes */}
         <Route
           element={(
             <ProtectedRoute>
