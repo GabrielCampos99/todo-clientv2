@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getJWT } from '../../utils/jwt/jwt';
 
-type ProtectedRouteProps = { children: any };
+type ProtectedRouteProps = { children: React.ReactNode };
 
 const ProtectedRoute = (props: ProtectedRouteProps) => {
   const { children } = props;
