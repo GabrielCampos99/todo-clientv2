@@ -27,7 +27,7 @@ const BottomNav = () => {
       <div className="flex gap-3 max-w-7xl m-auto justify-around relative">
         <NavLink
           to="/tarefas"
-          className={({ isActive }) => `hover:bg-slate-700 hover:rounded pt-3 px-3  ${
+          className={({ isActive }) => `transition-all hover:bg-slate-700 hover:rounded pt-3 px-3  ${
             isActive ? 'border-b-2 text-white bg-slate-700 rounded' : ''
           }`}
         >
@@ -39,7 +39,7 @@ const BottomNav = () => {
 
         <NavLink
           to="/foco"
-          className={({ isActive }) => `hover:bg-slate-700 hover:rounded pt-3 px-3  ${
+          className={({ isActive }) => `transition-all hover:bg-slate-700 hover:rounded pt-3 px-3  ${
             isActive ? 'border-b-2 text-white' : ''
           }`}
         >
@@ -51,13 +51,13 @@ const BottomNav = () => {
           </IconContainer>
         </NavLink>
 
-        <IconContainer className="ml-3 bg-purple-400 p-5 rounded-full -mt-9 h-16">
+        <IconContainer className="ml-3 cursor-pointer bg-purple-400 hover:bg-purple-500 transition p-5 rounded-full -mt-9 h-16">
           <Plus size={24} color="white" />
         </IconContainer>
 
         <NavLink
           to="/perfil"
-          className={({ isActive }) => `hover:bg-slate-700 hover:rounded pt-3 px-3  ${
+          className={({ isActive }) => `transition-all hover:bg-slate-700 hover:rounded pt-3 px-3  ${
             isActive ? 'border-b-2 text-white' : ''
           }`}
         >
@@ -71,7 +71,7 @@ const BottomNav = () => {
 
         <NavLink
           to="/perfil"
-          className={({ isActive }) => `hover:bg-slate-700 hover:rounded pt-3 px-3  ${
+          className={({ isActive }) => `transition-all hover:bg-slate-700 hover:rounded pt-3 px-3  ${
             isActive ? 'border-b-2 text-white' : ''
           }`}
         >
