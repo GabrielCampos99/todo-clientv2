@@ -55,7 +55,7 @@ const SingIn = () => {
           Já possui uma conta?
         </Typography>
         <Link to="/login">
-          <Typography variant="p" className="text-lg text-white">
+          <Typography variant="p" className="text-lg text-white underline">
             Entre por aqui!
           </Typography>
         </Link>

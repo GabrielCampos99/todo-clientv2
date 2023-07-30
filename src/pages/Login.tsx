@@ -54,7 +54,7 @@ const Login = () => {
           Não possui conta?
         </Typography>
         <Link to="/singin">
-          <Typography variant="p" className="text-lg text-white">
+          <Typography variant="p" className="text-lg text-white underline">
             Registre-se aqui!
           </Typography>
         </Link>

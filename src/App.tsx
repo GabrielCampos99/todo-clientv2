@@ -1,10 +1,14 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter, Routes, Route, Outlet
+} from 'react-router-dom';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import PageNotFound from './pages/PageNotFound';
 import Intro from './pages/Intro';
 import Login from './pages/Login';
 import SingIn from './pages/SingIn';
+import Tasks from './pages/Tasks';
+import ProtectedRoute from './ui/route/ProtectedRoute';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -31,6 +35,15 @@ const App = () => (
         <Route path="login" element={<Login />} />
         <Route path="singin" element={<SingIn />} />
 
+        <Route
+          element={(
+            <ProtectedRoute>
+              <Outlet />
+            </ProtectedRoute>
+          )}
+        >
+          <Route path="tarefas" element={<Tasks />} />
+        </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
