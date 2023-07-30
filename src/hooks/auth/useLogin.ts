@@ -1,11 +1,11 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '../../components/Toast';
 import { loginService } from '../../services/auth/apiAuth';
 import { LoginSchemaProps } from '../../types/schemas/login/loginSchema';
+import { storeJWT } from '../../utils/jwt/jwt.ts';
 
 export const useLogin = () => {
-  const queryClient = useQueryClient();
   const navigate = useNavigate();
   const toast = useToast();
 
@@ -14,8 +14,7 @@ export const useLogin = () => {
 
     onSuccess: (user) => {
       console.log(user);
-      //@TODO Add this info in localStorage or something...
-      queryClient.setQueryData(['user'], user);
+      storeJWT(user);
       navigate('/tarefas', { replace: true });
     },
     onError: (err) => {
