@@ -55,7 +55,7 @@ const CustomNavLink = (props: CustomNavLinkProps) => {
 const BottomNav = () => {
   const a = '';
   return (
-    <nav className="bg-gray-600 pb-6 pt-4 mt-7 rounded-t-lg">
+    <nav className="bg-gray-600 pb-6 pt-4 rounded-t-lg">
       <div className="flex gap-3 max-w-7xl m-auto justify-around relative">
         <CustomNavLink to="/tarefas">
           <IconContainer>
