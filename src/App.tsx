@@ -10,6 +10,7 @@ import SingIn from './pages/SingIn';
 import Tasks from './pages/Tasks';
 import ProtectedRoute from './ui/route/ProtectedRoute';
 import BasicLayout from './ui/layout/BasicLayout';
+import AppLayout from './ui/layout/AppLayout';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -51,7 +52,9 @@ const App = () => (
             </ProtectedRoute>
           )}
         >
-          <Route path="tarefas" element={<Tasks />} />
+          <Route element={<AppLayout />}>
+            <Route path="tarefas" element={<Tasks />} />
+          </Route>
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>

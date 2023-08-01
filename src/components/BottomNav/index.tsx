@@ -52,51 +52,50 @@ const CustomNavLink = (props: CustomNavLinkProps) => {
   );
 };
 
-const BottomNav = () => {
-  const a = '';
-  return (
-    <nav className="bg-gray-600 pb-6 pt-4 rounded-t-lg">
-      <div className="flex gap-3 max-w-7xl m-auto justify-around relative">
-        <CustomNavLink to="/tarefas">
-          <IconContainer>
-            <Home size={24} />
-            <Typography variant="h3">Home</Typography>
-          </IconContainer>
-        </CustomNavLink>
-
-        <CustomNavLink>
-          <IconContainer>
-            <Clock size={24} color="white" />
-            <Typography variant="h3" className="text-white">
-              Foco
-            </Typography>
-          </IconContainer>
-        </CustomNavLink>
-
-        <IconContainer className="ml-3 cursor-pointer bg-purple-400 hover:bg-purple-500 transition p-5 rounded-full -mt-9 h-16">
-          <Plus size={24} color="white" />
+const BottomNav = () => (
+  <nav className="bg-gray-600 pb-6 pt-4 rounded-t-lg">
+    <div className="flex lg:gap-3 max-w-7xl m-auto justify-around relative">
+      <CustomNavLink to="/tarefas">
+        <IconContainer>
+          <Home size={24} />
+          <Typography variant="h3" className="text-xs md:text-xl ">
+            Home
+          </Typography>
         </IconContainer>
+      </CustomNavLink>
 
-        <CustomNavLink>
-          <IconContainer>
-            <User2 size={24} color="white" />
-            <Typography variant="h3" className="text-white">
-              Perfil
-            </Typography>
-          </IconContainer>
-        </CustomNavLink>
+      <CustomNavLink>
+        <IconContainer>
+          <Clock size={24} color="white" />
+          <Typography variant="h3" className="text-xs md:text-xl text-white">
+            Foco
+          </Typography>
+        </IconContainer>
+      </CustomNavLink>
 
-        <CustomNavLink>
-          <IconContainer>
-            <CalendarDays size={24} color="white" />
-            <Typography variant="h3" className="text-white">
-              Calendário
-            </Typography>
-          </IconContainer>
-        </CustomNavLink>
-      </div>
-    </nav>
-  );
-};
+      <IconContainer className="ml-3 cursor-pointer bg-purple-400 hover:bg-purple-500 transition p-5 rounded-full -mt-9 h-16">
+        <Plus size={24} color="white" />
+      </IconContainer>
+
+      <CustomNavLink>
+        <IconContainer>
+          <User2 size={24} color="white" />
+          <Typography variant="h3" className="text-xs md:text-xl text-white">
+            Perfil
+          </Typography>
+        </IconContainer>
+      </CustomNavLink>
+
+      <CustomNavLink>
+        <IconContainer>
+          <CalendarDays size={24} color="white" />
+          <Typography variant="h3" className="text-xs md:text-xl text-white">
+            Calendário
+          </Typography>
+        </IconContainer>
+      </CustomNavLink>
+    </div>
+  </nav>
+);
 
 export default BottomNav;
