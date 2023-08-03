@@ -1,5 +1,6 @@
 import { Pencil, Trash2 } from 'lucide-react';
 import Typography from '../Typography';
+import { intlFormatDate } from '../../utils/date/intlFormatDate';
 
 type TaskCardProps = {
   title: string;
@@ -29,9 +30,7 @@ const TaskCard = (props: TaskCardProps) => {
           )}
 
           <Typography variant="p">
-            {`${new Intl.DateTimeFormat('pt-BR', {
-              dateStyle: 'full',
-            }).format(new Date(createdAt))}`}
+            {intlFormatDate({ date: createdAt, type: 'full' })}
           </Typography>
         </div>
         <div className="flex gap-1">
