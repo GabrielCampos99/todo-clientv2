@@ -1,13 +1,18 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 type PaginationProps = {
   totalPages: number;
 };
 const Pagination = (props: PaginationProps) => {
   const pageNumberLimit = 5;
-  const [currentPage, setCurrentPage] = useState(1);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentPage = !searchParams.get('page')
+    ? 1
+    : Number(searchParams.get('page'));
   const [maxPageLimit, setMaxPageLimit] = useState(5);
   const [minPageLimit, setMinPageLimit] = useState(0);
   const { totalPages } = props;
@@ -18,28 +23,34 @@ const Pagination = (props: PaginationProps) => {
   }
 
   const handlePrevClick = () => {
-    if (currentPage > 1) {
+    if (currentPage >= 1 && currentPage !== 1) {
       if ((currentPage - 1) % pageNumberLimit === 0) {
         setMaxPageLimit(maxPageLimit - pageNumberLimit);
         setMinPageLimit(minPageLimit - pageNumberLimit);
       }
-      setCurrentPage((prev) => prev - 1);
     }
+    const prev = currentPage <= 1 ? 1 : currentPage - 1;
+    searchParams.set('page', String(prev));
+    setSearchParams(searchParams);
   };
 
   const handleNextClick = () => {
-    if (currentPage < totalPages) {
+    if (currentPage <= totalPages && currentPage !== totalPages) {
       if (currentPage + 1 > maxPageLimit) {
         setMaxPageLimit(maxPageLimit + pageNumberLimit);
         setMinPageLimit(minPageLimit + pageNumberLimit);
       }
 
-      setCurrentPage((prev) => prev + 1);
+      const next = currentPage === totalPages ? currentPage : currentPage + 1;
+
+      searchParams.set('page', String(next));
+      setSearchParams(searchParams);
     }
   };
 
   const handlePageClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-    setCurrentPage(Number(e.currentTarget.id));
+    searchParams.set('page', String(e.currentTarget.id));
+    setSearchParams(searchParams);
   };
 
   // page ellipses

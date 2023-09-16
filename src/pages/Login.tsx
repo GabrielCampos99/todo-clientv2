@@ -11,6 +11,7 @@ import {
 } from '../types/schemas/login/loginSchema';
 import { useLogin } from '../hooks/auth/useLogin';
 import Divider from '../components/Divider/Index';
+import Pagination from '../components/Pagination';
 
 const Login = () => {
   const {
@@ -48,6 +49,8 @@ const Login = () => {
           ou
         </Typography>
       </Divider>
+
+      <Pagination totalPages={10} />
 
       <div className="flex justify-center mt-8 flex-wrap items-center gap-1 mb-8">
         <Typography variant="p" className="text-slate-300 text-lg">
