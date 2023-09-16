@@ -1,3 +1,17 @@
-const Tasks = () => <div className="max-w-7xl m-auto p-4">teste</div>;
+import TasksList from '../ui/lists/TasksList';
+
+const Tasks = () => {
+  const a = '';
+
+  return (
+    <div>
+      <TasksList
+        data={['item', 'item']}
+        render={(item) => <div>{item}</div>}
+        totalPages={10}
+      />
+    </div>
+  );
+};
 
 export default Tasks;

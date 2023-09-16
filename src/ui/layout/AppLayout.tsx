@@ -5,7 +5,9 @@ import BottomNav from '../../components/BottomNav';
 const AppLayout = () => (
   <div className="flex flex-col min-h-screen">
     <TopNav />
-    <Outlet />
+    <div className="flex-1 flex flex-col justify-center">
+      <Outlet />
+    </div>
     <BottomNav />
   </div>
 );
