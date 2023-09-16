@@ -3,6 +3,7 @@ import {
 } from 'react-router-dom';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ToastContainer } from 'react-toastify';
 import PageNotFound from './pages/PageNotFound';
 import Intro from './pages/Intro';
 import Login from './pages/Login';
@@ -11,6 +12,7 @@ import Tasks from './pages/Tasks';
 import ProtectedRoute from './ui/route/ProtectedRoute';
 import BasicLayout from './ui/layout/BasicLayout';
 import AppLayout from './ui/layout/AppLayout';
+import 'react-toastify/dist/ReactToastify.css';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -59,6 +61,7 @@ const App = () => (
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
+    <ToastContainer />
     <ReactQueryDevtools initialIsOpen={false} />
   </QueryClientProvider>
 );

@@ -1,18 +1,15 @@
 import Typography from '../Typography';
 import { intlFormatDate } from '../../utils/date/intlFormatDate';
+import { ITask } from '../../types/schemas/task/task';
 
 type TaskCardProps = {
-  title: string;
-  description?: string;
-  created_at: string | Date;
+  task: Partial<ITask>;
   options?: React.ReactNode;
 };
 const TaskCard = (props: TaskCardProps) => {
-  const {
-    title, created_at: createdAt, description, options
-  } = props;
+  const { task, options } = props;
   return (
-    <div className="max-w-fit">
+    <div>
       <div className="flex items-center text-white gap-4 px-2 bg-stone-700 rounded py-1">
         <input type="checkbox" className="h-5 w-5 cursor-pointer" />
         <div className="flex flex-col gap-1 line-clamp-1">
@@ -20,19 +17,22 @@ const TaskCard = (props: TaskCardProps) => {
             variant="h4"
             className="font-bold text-ellipsis overflow-hidden whitespace-nowrap"
           >
-            {title}
+            {task.title}
           </Typography>
-          {description && (
+          {task.description && (
             <Typography
               variant="h4"
               className="font-normal text-ellipsis overflow-hidden whitespace-nowrap"
             >
-              {description}
+              {task.description}
             </Typography>
           )}
 
           <Typography variant="p">
-            {intlFormatDate({ date: createdAt, type: 'full' })}
+            {intlFormatDate({
+              date: new Date(`${task.created_at}`),
+              type: 'full',
+            })}
           </Typography>
         </div>
         {options && options}
