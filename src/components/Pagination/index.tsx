@@ -7,15 +7,18 @@ type PaginationProps = {
   totalPages: number;
 };
 const Pagination = (props: PaginationProps) => {
+  const { totalPages } = props;
   const pageNumberLimit = 5;
 
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = !searchParams.get('page')
     ? 1
     : Number(searchParams.get('page'));
-  const [maxPageLimit, setMaxPageLimit] = useState(5);
-  const [minPageLimit, setMinPageLimit] = useState(0);
-  const { totalPages } = props;
+  const roundedCurrentPage = Math.ceil(currentPage / pageNumberLimit) * pageNumberLimit;
+  const [maxPageLimit, setMaxPageLimit] = useState(roundedCurrentPage);
+  const [minPageLimit, setMinPageLimit] = useState(
+    roundedCurrentPage - pageNumberLimit
+  );
 
   const pages = [];
   for (let i = 1; i <= totalPages; i += 1) {
