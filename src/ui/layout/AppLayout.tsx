@@ -3,9 +3,9 @@ import TopNav from '../../components/Nav';
 import BottomNav from '../../components/BottomNav';
 
 const AppLayout = () => (
-  <div className="flex flex-col min-h-screen">
+  <div className="flex flex-col h-screen">
     <TopNav />
-    <div className="flex-1 flex flex-col h-[72vh] overflow-y-auto">
+    <div className="grow overflow-y-auto">
       <Outlet />
     </div>
     <BottomNav />
