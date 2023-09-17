@@ -21,11 +21,9 @@ const TasksList = <T,>(props: TasksListProps<T>) => {
   const taskClassName = className || '';
   return (
     <div
-      className={`flex flex-col min-h-[75vh] justify-between items-center max-w-7xl m-auto ${taskClassName}`}
+      className={`flex gap-4 flex-col h-[75vh] justify-between items-center pb-7 max-w-7xl m-auto overflow-y-auto ${taskClassName}`}
     >
-      <div className="w-full max-h-[65vh] overflow-y-auto mb-2 ">
-        {data.map(render)}
-      </div>
+      <div className="flex gap-4 flex-col w-full">{data.map(render)}</div>
       {!!totalPages && totalPages > 0 && <Pagination totalPages={totalPages} />}
     </div>
   );

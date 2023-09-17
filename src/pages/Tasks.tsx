@@ -10,9 +10,7 @@ const Tasks = () => {
       <TasksList
         data={data?.data}
         render={(task) => (
-          <div className="m-4">
-            <TaskCard task={task} key={task.id + task.title} />
-          </div>
+          <TaskCard className="mx-4" task={task} key={task.id + task.title} />
         )}
         totalPages={data?.lastPage}
       />
