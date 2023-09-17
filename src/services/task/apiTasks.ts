@@ -4,8 +4,13 @@ import { toast } from 'react-toastify';
 import { Response } from '../../types';
 const JSON_CONTENT_TYPE = 'application/json';
 
+type OptionsType = {
+  page?: any;
+  title?: string;
+};
+
 export const getTasks = async <T>(
-  { page }: { page: number },
+  options: OptionsType,
   token: string | null = getJWT()
 ): Promise<Response<T>> => {
   const apiUrl = import.meta.env.VITE_API_URL;
@@ -14,8 +19,10 @@ export const getTasks = async <T>(
     throw new NetworkError('Erro ao recuperar URL da API');
   }
 
+  const result = '?' + new URLSearchParams(options || {}).toString();
+
   try {
-    const response = await fetch(`${apiUrl}/tasks?page=${page}`, {
+    const response = await fetch(`${apiUrl}/tasks${result}`, {
       method: 'GET',
       headers: {
         'Content-Type': JSON_CONTENT_TYPE,

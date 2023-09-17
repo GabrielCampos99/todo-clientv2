@@ -8,12 +8,13 @@ export function useTasks() {
   const [searchParams] = useSearchParams();
 
   // PAGINATION
-  const page = !searchParams.get('page') ? 1 : Number(searchParams.get('page'));
+  const options = Object.fromEntries([...searchParams]);
+  const page = options?.page ? Number(options.page) : 1;
 
   // QUERY
   const { isLoading, data, error } = useQuery({
-    queryKey: ['bookings', page],
-    queryFn: () => getTasks<ITask[]>({ page }),
+    queryKey: ['bookings', options],
+    queryFn: () => getTasks<ITask[]>(options),
     retry: false,
   });
 

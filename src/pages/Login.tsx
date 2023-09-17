@@ -11,7 +11,6 @@ import {
 } from '../types/schemas/login/loginSchema';
 import { useLogin } from '../hooks/auth/useLogin';
 import Divider from '../components/Divider/Index';
-import Pagination from '../components/Pagination';
 
 const Login = () => {
   const {
