@@ -1,5 +1,4 @@
-import { ReactNode, useRef } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { ReactNode } from 'react';
 import Typography from '../../../components/Typography';
 import Pagination from '../../../components/Pagination';
 
